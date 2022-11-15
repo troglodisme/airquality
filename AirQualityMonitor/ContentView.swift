@@ -6,21 +6,58 @@
 //
 
 import SwiftUI
+import CoreLocationUI
+import MapKit
 
 struct ContentView: View {
+    
+    //Map
+    @StateObject var locationManager = LocationManager()
+    @State var tracking:MapUserTrackingMode = .none
+    @State private var showUserLocation = false
+
+    //Sheet
+    @State private var showInformation = true
+    
+
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        
+        
+        NavigationView {
+            
+            ZStack{
+                
+                Map(coordinateRegion: $locationManager.region, showsUserLocation: showUserLocation)
+                
+                Button("Show Info") {
+                    showInformation.toggle()
+                }
+                
+                    .sheet(isPresented: $showInformation) {
+                        
+                        AirQualityView()
+                            .presentationDetents([.fraction(0.22), .fraction(0.5)])
+
+                    }
+                
+            }
+            
+//            .navigationTitle("Air Quality")
+            .ignoresSafeArea()
         }
-        .padding()
+        
+        
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
+
