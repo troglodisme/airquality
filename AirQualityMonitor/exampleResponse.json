@@ -1,0 +1,18 @@
+{
+	"metadata": null,
+	"data": {
+		"datetime": "2022-11-15T23:00:00Z",
+		"data_available": true,
+		"indexes": {
+			"baqi": {
+				"display_name": "BreezoMeter AQI",
+				"aqi": 70,
+				"aqi_display": "70",
+				"color": "#84CF33",
+				"category": "Good air quality",
+				"dominant_pollutant": "pm10"
+			}
+		}
+	},
+	"error": null
+}
