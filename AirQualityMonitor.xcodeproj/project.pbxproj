@@ -7,33 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E160074292B8EE400B88689 /* Noto_Emoji in Resources */ = {isa = PBXBuildFile; fileRef = 4E160073292B8EE300B88689 /* Noto_Emoji */; };
+		4E160077292B91D000B88689 /* CurvedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E160076292B91D000B88689 /* CurvedBar.swift */; };
+		4E160079292C24AF00B88689 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E160078292C24AF00B88689 /* Locations.swift */; };
+		4E3166D2292D8E7400AC2671 /* GeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3166D1292D8E7400AC2671 /* GeometryReader.swift */; };
+		4E637713292D1561003692DF /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 4E637712292D1561003692DF /* Color */; };
 		4ED5D7682922F0C1005B7557 /* AirQualityMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D7672922F0C1005B7557 /* AirQualityMonitorApp.swift */; };
 		4ED5D76A2922F0C1005B7557 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D7692922F0C1005B7557 /* ContentView.swift */; };
 		4ED5D76C2922F0C3005B7557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED5D76B2922F0C3005B7557 /* Assets.xcassets */; };
 		4ED5D76F2922F0C3005B7557 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED5D76E2922F0C3005B7557 /* Preview Assets.xcassets */; };
 		4ED5D7782922F629005B7557 /* AirQualityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D7772922F629005B7557 /* AirQualityManager.swift */; };
-		4ED5D77C29239F92005B7557 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D77B29239F92005B7557 /* MapView.swift */; };
 		4ED5D7802923B95F005B7557 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D77F2923B95F005B7557 /* LocationManager.swift */; };
-		4ED5D7822923D671005B7557 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D7812923D671005B7557 /* BottomSheet.swift */; };
 		4ED5D7842923D994005B7557 /* AirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D7832923D994005B7557 /* AirQualityView.swift */; };
-		4ED5D78A292403F6005B7557 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D789292403F6005B7557 /* WelcomeView.swift */; };
-		4ED5D78C292404D2005B7557 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5D78B292404D2005B7557 /* LoadingView.swift */; };
 		4ED5D78E2924DD16005B7557 /* exampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED5D78D2924DD16005B7557 /* exampleResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E160073292B8EE300B88689 /* Noto_Emoji */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Noto_Emoji; sourceTree = "<group>"; };
+		4E160075292B8F3500B88689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4E160076292B91D000B88689 /* CurvedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedBar.swift; sourceTree = "<group>"; };
+		4E160078292C24AF00B88689 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		4E3166D1292D8E7400AC2671 /* GeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReader.swift; sourceTree = "<group>"; };
 		4ED5D7642922F0C1005B7557 /* AirQualityMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQualityMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED5D7672922F0C1005B7557 /* AirQualityMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityMonitorApp.swift; sourceTree = "<group>"; };
 		4ED5D7692922F0C1005B7557 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4ED5D76B2922F0C3005B7557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED5D76E2922F0C3005B7557 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4ED5D7772922F629005B7557 /* AirQualityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityManager.swift; sourceTree = "<group>"; };
-		4ED5D77B29239F92005B7557 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4ED5D77F2923B95F005B7557 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		4ED5D7812923D671005B7557 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		4ED5D7832923D994005B7557 /* AirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityView.swift; sourceTree = "<group>"; };
-		4ED5D789292403F6005B7557 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		4ED5D78B292404D2005B7557 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4ED5D78D2924DD16005B7557 /* exampleResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = exampleResponse.json; path = ../../../../../Downloads/exampleResponse.json; sourceTree = "<group>"; };
 		4ED5D78F2924DD21005B7557 /* exampleResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleResponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E637713292D1561003692DF /* Color in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,9 +55,7 @@
 		4ED5D75B2922F0C1005B7557 = {
 			isa = PBXGroup;
 			children = (
-				4ED5D77B29239F92005B7557 /* MapView.swift */,
-				4ED5D7812923D671005B7557 /* BottomSheet.swift */,
-				4ED5D7672922F0C1005B7557 /* AirQualityMonitorApp.swift */,
+				4E3166D1292D8E7400AC2671 /* GeometryReader.swift */,
 				4ED5D7662922F0C1005B7557 /* AirQualityMonitor */,
 				4ED5D7652922F0C1005B7557 /* Products */,
 			);
@@ -71,13 +72,16 @@
 		4ED5D7662922F0C1005B7557 /* AirQualityMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				4ED5D7672922F0C1005B7557 /* AirQualityMonitorApp.swift */,
+				4E160075292B8F3500B88689 /* Info.plist */,
 				4ED5D7692922F0C1005B7557 /* ContentView.swift */,
 				4ED5D7832923D994005B7557 /* AirQualityView.swift */,
-				4ED5D789292403F6005B7557 /* WelcomeView.swift */,
-				4ED5D78B292404D2005B7557 /* LoadingView.swift */,
+				4E160076292B91D000B88689 /* CurvedBar.swift */,
 				4ED5D77F2923B95F005B7557 /* LocationManager.swift */,
 				4ED5D7772922F629005B7557 /* AirQualityManager.swift */,
+				4E160078292C24AF00B88689 /* Locations.swift */,
 				4ED5D76B2922F0C3005B7557 /* Assets.xcassets */,
+				4E160073292B8EE300B88689 /* Noto_Emoji */,
 				4ED5D78F2924DD21005B7557 /* exampleResponse.json */,
 				4ED5D76D2922F0C3005B7557 /* Preview Content */,
 			);
@@ -109,6 +113,9 @@
 			dependencies = (
 			);
 			name = AirQualityMonitor;
+			packageProductDependencies = (
+				4E637712292D1561003692DF /* Color */,
+			);
 			productName = AirQualityMonitor;
 			productReference = 4ED5D7642922F0C1005B7557 /* AirQualityMonitor.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +144,9 @@
 				Base,
 			);
 			mainGroup = 4ED5D75B2922F0C1005B7557;
+			packageReferences = (
+				4E637711292D1561003692DF /* XCRemoteSwiftPackageReference "Color" */,
+			);
 			productRefGroup = 4ED5D7652922F0C1005B7557 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED5D76F2922F0C3005B7557 /* Preview Assets.xcassets in Resources */,
+				4E160074292B8EE400B88689 /* Noto_Emoji in Resources */,
 				4ED5D78E2924DD16005B7557 /* exampleResponse.json in Resources */,
 				4ED5D76C2922F0C3005B7557 /* Assets.xcassets in Resources */,
 			);
@@ -165,14 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED5D76A2922F0C1005B7557 /* ContentView.swift in Sources */,
-				4ED5D77C29239F92005B7557 /* MapView.swift in Sources */,
-				4ED5D7822923D671005B7557 /* BottomSheet.swift in Sources */,
-				4ED5D78A292403F6005B7557 /* WelcomeView.swift in Sources */,
 				4ED5D7802923B95F005B7557 /* LocationManager.swift in Sources */,
 				4ED5D7682922F0C1005B7557 /* AirQualityMonitorApp.swift in Sources */,
+				4E160079292C24AF00B88689 /* Locations.swift in Sources */,
 				4ED5D7782922F629005B7557 /* AirQualityManager.swift in Sources */,
+				4E3166D2292D8E7400AC2671 /* GeometryReader.swift in Sources */,
+				4E160077292B91D000B88689 /* CurvedBar.swift in Sources */,
 				4ED5D7842923D994005B7557 /* AirQualityView.swift in Sources */,
-				4ED5D78C292404D2005B7557 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +314,8 @@
 				DEVELOPMENT_TEAM = J566499KXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AirQualityMonitor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -334,6 +346,8 @@
 				DEVELOPMENT_TEAM = J566499KXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AirQualityMonitor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -375,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4E637711292D1561003692DF /* XCRemoteSwiftPackageReference "Color" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lipka/Color";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4E637712292D1561003692DF /* Color */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E637711292D1561003692DF /* XCRemoteSwiftPackageReference "Color" */;
+			productName = Color;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4ED5D75C2922F0C1005B7557 /* Project object */;
 }

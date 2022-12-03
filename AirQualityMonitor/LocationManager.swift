@@ -12,45 +12,8 @@ import Foundation
 import CoreLocation
 import MapKit
 
-//class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-//    // Creating an instance of CLLocationManager, the framework we use to get the coordinates
-//    let manager = CLLocationManager()
-//
-//    @Published var location: CLLocationCoordinate2D?
-//    @Published var isLoading = false
-//
-//    override init() {
-//        super.init()
-//
-//        // Assigning a delegate to our CLLocationManager instance
-//        manager.delegate = self
-//    }
-//
-//    // Requests the one-time delivery of the user’s current location, see https://developer.apple.com/documentation/corelocation/cllocationmanager/1620548-requestlocation
-//    func requestLocation() {
-//        isLoading = true
-//        manager.requestLocation()
-//    }
-//
-//    // Set the location coordinates to the location variable
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        location = locations.first?.coordinate
-//        isLoading = false
-//    }
-//
-//
-//    // This function will be called if we run into an error
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print("Error getting location", error)
-//        isLoading = false
-//    }
-//}
 
-
-
-//Use to display map
-
-class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
+final class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
 
     private let manager = CLLocationManager()
 
@@ -58,6 +21,13 @@ class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
     @Published var region = MKCoordinateRegion()
 
     @Published var isLoading = false
+
+    //Publish city location
+    @Published var street = ""
+    @Published var city = ""
+    @Published var country = ""
+
+    //add is favourite parameter to store saved locations in array
 
     override init() {
             super.init()
@@ -68,18 +38,59 @@ class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
         }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        location = locations.first?.coordinate
         
-            locations.last.map {
+        guard let location = locations.first else { return }
+        
+        DispatchQueue.main.async {
+            self.location = location.coordinate
+            self.region = MKCoordinateRegion(
+                center: location.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            )
+        }
+        
+        
+        //        location = locations.first?.coordinate
+        //
+        //            locations.last.map {
+        //                region = MKCoordinateRegion(
+        //                    center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
+        //                    span: MKCoordinateSpan(latitudeDelta: 0.2,
+        //                                           longitudeDelta: 0.2)
+        //                )
+        //            }
+        
 
-                region = MKCoordinateRegion(
-                    center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler:
+            {
+                placemarks, error -> Void in
 
-                    span: MKCoordinateSpan(latitudeDelta: 0.2,
-                                           longitudeDelta: 0.2)
-                )
-            }
+                guard let placeMark = placemarks?.first else { return }
+
+                if let locationName = placeMark.location {
+//                    print("coordinates: \(locationName)")
+                }
+            
+                if let street = placeMark.thoroughfare {
+                    self.street = street
+                }
+            
+                if let city = placeMark.subAdministrativeArea {
+                    self.city = city
+                }
+            
+                if let zip = placeMark.isoCountryCode {
+                }
+            
+                if let country = placeMark.country {
+                    self.country = country
+
+                }
+        })
+        
+        
         }
     
     
@@ -97,12 +108,12 @@ class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
     }
 
 
-
     // This function will be called if we run into an error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error getting location", error)
         isLoading = false
     }
+    
     
 
 }

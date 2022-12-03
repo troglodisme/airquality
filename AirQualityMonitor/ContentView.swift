@@ -2,174 +2,108 @@
 //  ContentView.swift
 //  AirQualityMonitor
 //
-//  Created by Giulio on 14/11/22.
-//
+//  Created by Giulio on 22/11/22.
+
 
 import SwiftUI
 import CoreLocationUI
 import MapKit
 
-struct ContentView: View {
+struct Location: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
+
+let locations = [
+    Location(name: "Buckingham Palace",
+             coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
     
+    Location(name: "Apple Developer Academy",
+             coordinate: CLLocationCoordinate2D(latitude: 40.8367, longitude: 14.3066))
+]
+
+
+struct ContentView: View {
+
     //Map
     @StateObject var locationManager = LocationManager()
-    @State var tracking:MapUserTrackingMode = .none
-    
-    //AirQuality
-    @StateObject var airQualityManager = AirQualityManager()
-    @State var airQuality: Response?
+    @State var tracking:MapUserTrackingMode = .follow
+    @State var detent: PresentationDetent = .fraction(0.38)
     
     //Sheet
     @State private var showInformation = true
-    
-    
+
     var body: some View {
-        
+
         ZStack{
-            
-            Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
-            
-            VStack{
-                
-                if let location = locationManager.location {
-                    
-                    Text("Air Quality")
-                    
-                    
-                        .task {
-                            do {
-                                airQuality = try await airQualityManager.getAirQuality(
-                                    latitude: location.latitude,
-                                    longitude: location.longitude
-                                )
-                            } catch {
-                                print("ERROR: \(error)")
-                            }
-                        }
-                    
-                } else {
-                    Text("Loading")
-                }
-                
-            }
-            .sheet(isPresented: $showInformation) {
-                
-                VStack{
-                    Text("Air Quality")
-                        .font(.title)
-                    
-                    if let airQuality = airQuality {
 
-                        Text("Value: \(airQuality.data.indexes.baqi.aqiDisplay)")
+            Map(coordinateRegion: $locationManager.region,
+                showsUserLocation: true
+            )
+            .ignoresSafeArea()
+            
+//            Map(coordinateRegion: $locationManager.region, annotationItems: locations) { location in
+//
+//                MapAnnotation(coordinate: location.coordinate) {
+//
+//                    NavigationLink {
+//                        Text(location.name)
+//
+//                    } label: {
+//                        Circle()
+//                            .stroke(.red, lineWidth: 3)
+//                            .frame(width: 44, height: 44)
+//                    }
+//
+//                }
+//            }
 
-                    }
-                }
+            //top right button
+            
+//            VStack {
+//                HStack {
+//                    Spacer()
+//
+//                    VStack {
+//
+//                        Button(action: {
+//                            print("test top button")
+//                        }, label: {
+//                            Image(systemName: "gear")
+//                                .padding()
+//                        })
+//                    }
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 8)
+//                            .tint(Color.gray)
+//                    }
+//                    .padding(10)
+//
+//                }
+//                Spacer()
+//            }
+            
+            //end of top right button
 
-                
-            .presentationDetents([.fraction(0.22), .fraction(0.5)])
-            }
-
-            
-            
-            
-            
-            
-            //            if let location = locationManager.location {
-            //
-            //                Text(locationManager.location.debugDescription)
-            //                    .foregroundColor(.white)
-            //                    .background(Color.red)
-            //
-            //                    .task {
-            //                        do {
-            //                            airQuality = try await airQualityManager.getAirQuality(latitude: $locationManager.location?.latitude ?? default 50.0, longitude: $locationManager.location?.longitude ?? default 2.0)
-            //                        } catch {
-            //                            print("Error getting weather: \(error)")
-            //                        }
-            //                    }
-            //
-            //            }
-            
-            
-            //            VStack {
-            //                if let location = locationManager.location {
-            //
-            //                    Text(locationManager.location.debugDescription)
-            //
-            //                    if let airQuality = airQuality {
-            //
-            //                        AirQualityView(airQuality: airQuality)
-            //
-            //                    } else {
-            //
-            //                        Text("Loading...")
-            //
-            //                    }
-            //                        LoadingView()
-            //
-            //
-            //                    }
-            
-            ////                } else {
-            ////                    if locationManager.isLoading {
-            ////                        LoadingView()
-            ////                    } else {
-            ////                        WelcomeView()
-            ////                            .environmentObject(locationManager)
-            ////                    }
-            //
-            //                }
-            //            }
-            ////            .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-            //
-            //
         }
-        
-        
-        //        NavigationView {
-        //
-        //            ZStack{
-        //
-        ////                Map(coordinateRegion: $locationManager.region, showsUserLocation: showUserLocation)
-        //
-        //                VStack{
-        //                    if let location = locationManager.location {
-        //                        if let airQuality = airQuality {
-        //                            AirQualityView(airQuality: airQuality)
-        //                        }
-        //                    }
-        //                    else {
-        //                        LoadingView()
-        //                            .task {
-        //                                do {
-        //                                    airQuality = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
-        //                                } catch {
-        //                                    print("Error getting weather: \(error)")
-        //                                }
-        //                            }
-        //                    }
-        //                } else {
-        //                    if locationManager.isLoading {
-        //                        LoadingView()
-        //                    } else {
-        //                        WelcomeView()
-        //                            .environmentObject(locationManager)
-        //                    }
-        //                }
-        
-        
-        //
-        //            }
-        //
-        ////            .ignoresSafeArea()
-        //        }
-        //        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-        //        .preferredColorScheme(.dark)
-        
-        
-    }
-}
+        .sheet(isPresented: $showInformation) {
 
+            AirQualityView(locationManager: locationManager, selectedDetent: $detent)
+//                .presentationDetents([.fraction(0.40), .fraction(0.80)])
+                .presentationDetents([.fraction(0.38), .fraction(0.93)], selection: $detent)
+                .interactiveDismissDisabled(true)
+
+        }
+
+
+    }
+    
+
+    
+
+    
+}
 
 
 struct ContentView_Previews: PreviewProvider {
@@ -177,5 +111,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 
